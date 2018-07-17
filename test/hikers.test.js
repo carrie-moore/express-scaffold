@@ -35,6 +35,12 @@ describe('Hikers API', () => {
         assert.isOk(allgood._id);
     });
 
-    
+    it('gets a hiker by id', () => {
+        return request  
+            .get(`/api/hikers/${allgood._id}`)
+            .then(({ body }) => {
+                assert.deepEqual(body, allgood);
+            });
+    });
 
 });
